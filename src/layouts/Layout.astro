@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nl_BE" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={new URL('/hero.webp', Astro.site).href} />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="1066" />
+    <meta property="og:site_name" content="SLIM Klussen & Renoveren" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/hero.webp', Astro.site).href} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "SLIM — Klussen & Renoveren",
+      "image": "https://slim-klussen.be/hero.webp",
+      "description": "Ervaren klusjesman in Oost-Vlaanderen. Herstellingen, renovaties, montage en recuperatie.",
+      "url": "https://slim-klussen.be",
+      "telephone": "+32487726546",
+      "email": "slim.klussen@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wanzelestraat 27",
+        "addressLocality": "Schellebelle (Wichelen)",
+        "postalCode": "9260",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.0038,
+        "longitude": 3.8842
+      },
+      "areaServed": [
+        { "@type": "State", "name": "Oost-Vlaanderen" },
+        { "@type": "City", "name": "Gent" },
+        { "@type": "City", "name": "Aalst" },
+        { "@type": "City", "name": "Sint-Niklaas" },
+        { "@type": "City", "name": "Dendermonde" },
+        { "@type": "City", "name": "Wetteren" },
+        { "@type": "City", "name": "Lokeren" },
+        { "@type": "City", "name": "Zele" },
+        { "@type": "City", "name": "Hamme" },
+        { "@type": "City", "name": "Temse" },
+        { "@type": "City", "name": "Beveren" },
+        { "@type": "City", "name": "Destelbergen" },
+        { "@type": "City", "name": "Merelbeke" },
+        { "@type": "City", "name": "Melle" },
+        { "@type": "City", "name": "Laarne" },
+        { "@type": "City", "name": "Berlare" },
+        { "@type": "City", "name": "Wichelen" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "vatID": "BE1025378882",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Diensten",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Herstellingen" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montage" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kleine renovaties" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afbraak met recuperatie" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hergebruik en herplaatsing" } }
+        ]
+      }
+    })} />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Welke klussen voert SLIM uit?", "acceptedAnswer": { "@type": "Answer", "text": "Herstellingen, montage, kleine renovaties, afbraak met recuperatie en herplaatsing van materialen. Van een lekkende kraan tot een complete badkamerrenovatie." } },
+        { "@type": "Question", "name": "Werkt SLIM ook in mijn gemeente?", "acceptedAnswer": { "@type": "Answer", "text": "SLIM is actief in heel Oost-Vlaanderen: Gent, Aalst, Sint-Niklaas, Dendermonde, Wetteren, Lokeren en omstreken." } },
+        { "@type": "Question", "name": "Hoe snel kan SLIM langskomen?", "acceptedAnswer": { "@type": "Answer", "text": "U krijgt antwoord binnen 24 uur. Spoedinterventies zijn mogelijk tegen een toeslag." } },
+        { "@type": "Question", "name": "Is er garantie op de uitgevoerde werken?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. SLIM biedt garantie op alle uitgevoerde werken en nieuw geplaatste onderdelen." } },
+        { "@type": "Question", "name": "Wat betekent recuperatie en hergebruik?", "acceptedAnswer": { "@type": "Answer", "text": "Bij afbraakwerken bekijken we of materialen zoals deuren, kranen of tegels herbruikbaar zijn. Dit gebeurt alleen op uw vraag en wanneer het technisch verantwoord is." } },
+        { "@type": "Question", "name": "Is SLIM verzekerd?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. SLIM is BA verzekerd voor alle uitgevoerde werken." } },
+        { "@type": "Question", "name": "Hoe vraag ik een offerte aan?", "acceptedAnswer": { "@type": "Answer", "text": "Bel 0487 72 65 46, stuur een WhatsApp-bericht of mail naar slim.klussen@gmail.com. U ontvangt een vrijblijvende offerte." } },
+        { "@type": "Question", "name": "Werkt SLIM ook in het weekend?", "acceptedAnswer": { "@type": "Answer", "text": "Neem contact op om de mogelijkheden te bespreken. Flexibele planning waar mogelijk." } }
+      ]
+    })} />
+  </head>
+  <body class="bg-white antialiased">
+    <slot />
+  </body>
+</html>
