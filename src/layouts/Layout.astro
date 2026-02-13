@@ -232,66 +232,10 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0
     )}
   </head>
   <body class="bg-white antialiased">
-    <!-- Page preloader -->
-    <div id="preloader" class="fixed inset-0 z-[200] bg-white flex items-center justify-center transition-opacity duration-500">
-      <div class="text-center">
-        <img src="/logo.png" alt="SLIM Klussen & Renoveren" class="w-20 h-20 mx-auto mb-2" />
-        <div class="mt-4 w-32 h-1 bg-gray-200 rounded-full mx-auto overflow-hidden">
-          <div id="preloader-bar" class="h-full bg-[#d67b3a] rounded-full" style="width: 0%; transition: width 0.3s ease;"></div>
-        </div>
-        <p id="preloader-percent" class="text-xs text-gray-400 mt-2 font-medium">0%</p>
-      </div>
-    </div>
-    <script is:inline>
-      (function() {
-        var bar = document.getElementById('preloader-bar');
-        var percent = document.getElementById('preloader-percent');
-        var preloader = document.getElementById('preloader');
-        var progress = 0;
-        var interval = setInterval(function() {
-          progress += Math.random() * 30 + 10;
-          if (progress > 90) progress = 90;
-          if (bar) bar.style.width = progress + '%';
-          if (percent) percent.textContent = Math.round(progress) + '%';
-        }, 200);
-        window.addEventListener('load', function() {
-          clearInterval(interval);
-          if (bar) bar.style.width = '100%';
-          if (percent) percent.textContent = '100%';
-          setTimeout(function() {
-            if (preloader) {
-              preloader.style.opacity = '0';
-              preloader.style.pointerEvents = 'none';
-              setTimeout(function() { preloader.remove(); }, 500);
-            }
-          }, 400);
-        });
-      })();
-    </script>
-    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-[#d67b3a] z-[100] transition-none" style="width: 0%; transform-origin: left;"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-[#d67b3a] z-[100]" style="width: 0%; transform-origin: left;"></div>
     <slot transition:animate="fade" />
 
     <script>
-      import gsap from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      import Lenis from 'lenis';
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Initialize Lenis smooth scroll
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-      });
-
-      // Connect Lenis to GSAP ScrollTrigger
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time: number) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-
       // Scroll progress bar
       const progressBar = document.getElementById('scroll-progress');
       if (progressBar) {
@@ -330,103 +274,38 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0
         }
       }, { passive: true });
 
-      // Animate [data-animate] elements
-      document.querySelectorAll('[data-animate]').forEach((el) => {
-        gsap.fromTo(el,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            }
-          }
-        );
-      });
-
-      // Animate [data-animate-stagger] children
-      document.querySelectorAll('[data-animate-stagger]').forEach((container) => {
-        const children = container.children;
-        gsap.fromTo(children,
-          { opacity: 0, y: 24 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: container,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            }
-          }
-        );
-      });
-
-      // Parallax effect on hero image
-      const heroImg = document.querySelector('[data-parallax]');
-      if (heroImg) {
-        gsap.to(heroImg, {
-          y: 60,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: heroImg,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: true,
+      // Lightweight scroll reveal (replaces GSAP)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
           }
         });
-      }
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-      // Counter animation for stats
-      document.querySelectorAll('[data-count]').forEach((el) => {
-        const target = parseInt(el.getAttribute('data-count') || '0');
-        gsap.fromTo(el,
-          { textContent: 0 },
-          {
-            textContent: target,
-            duration: 2,
-            ease: 'power1.out',
-            snap: { textContent: 1 },
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            }
-          }
-        );
-      });
+      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-      // SVG draw-on-scroll for [data-draw] elements
-      document.querySelectorAll('[data-draw]').forEach((el) => {
-        const paths = el.querySelectorAll('path, circle, line, rect');
-        paths.forEach((path) => {
-          const p = path as SVGGeometryElement;
-          if (p.getTotalLength) {
-            const length = p.getTotalLength();
-            gsap.set(p, { strokeDasharray: length, strokeDashoffset: length });
-            gsap.to(p, {
-              strokeDashoffset: 0,
-              duration: 1.5,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-              }
+      // Stagger children animation
+      const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const children = entry.target.children;
+            Array.from(children).forEach((child, i) => {
+              (child as HTMLElement).style.transitionDelay = `${i * 80}ms`;
+              child.classList.add('is-visible');
             });
+            staggerObserver.unobserve(entry.target);
           }
         });
-      });
+      }, { threshold: 0.1 });
 
-      // Re-init on page navigation (View Transitions)
+      document.querySelectorAll('[data-animate-stagger]').forEach(el => staggerObserver.observe(el));
+
+      // Re-init on View Transitions navigation
       document.addEventListener('astro:page-load', () => {
-        ScrollTrigger.refresh();
+        document.querySelectorAll('[data-animate]:not(.is-visible)').forEach(el => observer.observe(el));
+        document.querySelectorAll('[data-animate-stagger]:not(.is-visible)').forEach(el => staggerObserver.observe(el));
       });
     </script>
   </body>

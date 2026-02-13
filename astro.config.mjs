@@ -7,7 +7,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://slim-klussen.be',
-  output: 'server',
+  output: 'static',
   vite: {
     plugins: [tailwindcss()]
   },

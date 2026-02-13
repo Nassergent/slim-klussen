@@ -74,10 +74,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* GSAP base states - elements start invisible, GSAP animates them */
+/* Scroll reveal animations (lightweight, no JS library needed) */
 [data-animate],
 [data-animate-stagger] > * {
   opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-animate].is-visible,
+[data-animate-stagger] > .is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* === SECTION UTILITIES === */
@@ -287,26 +295,6 @@ details summary::-webkit-details-marker {
   margin-top: 0.25rem;
 }
 
-/* Lenis smooth scroll */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
 
 /* Button ripple effect */
 .btn-ripple {
