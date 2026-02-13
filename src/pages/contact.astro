@@ -1,0 +1,701 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact | Klusjesman Wetteren | SLIM"
+  description="Neem contact op met SLIM voor uw klus of renovatie in de regio Wetteren. Bel 0487 72 65 46 of vraag online een gratis offerte aan."
+  canonical="https://slim-klussen.be/contact"
+  keywords="contact klusjesman wetteren, offerte aanvragen klusjesman, klusjesman bellen wetteren, slim klussen contact, gratis offerte renovatie"
+>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#d67b3a] focus:text-white focus:px-4 focus:py-2 focus:rounded-sm focus:text-sm focus:font-semibold">Ga naar inhoud</a>
+
+  <!-- HEADER / NAV -->
+  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm" role="banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/logo.png" alt="SLIM Klussen & Renoveren" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600" aria-label="Hoofdnavigatie">
+        <a href="/#diensten" class="hover:text-[#d67b3a] transition-colors">Diensten</a>
+        <a href="/#werkwijze" class="hover:text-[#d67b3a] transition-colors">Werkwijze</a>
+        <a href="/over-ons" class="hover:text-[#d67b3a] transition-colors">Over ons</a>
+        <a href="/contact" class="text-[#d67b3a] font-semibold">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a
+          href="tel:0487726546"
+          class="inline-flex items-center gap-2 bg-[#d67b3a] hover:bg-[#c06a2e] text-white px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 shadow-sm"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <span class="hidden sm:inline">0487 72 65 46</span>
+        </a>
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 text-gray-600 hover:text-[#d67b3a] transition-colors"
+          aria-label="Menu openen"
+          aria-expanded="false"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/98 backdrop-blur-md" aria-label="Mobiel menu">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm font-medium text-gray-600">
+        <a href="/#diensten" class="py-2 hover:text-[#d67b3a] transition-colors">Diensten</a>
+        <a href="/#werkwijze" class="py-2 hover:text-[#d67b3a] transition-colors">Werkwijze</a>
+        <a href="/over-ons" class="py-2 hover:text-[#d67b3a] transition-colors">Over ons</a>
+        <a href="/contact" class="py-2 text-[#d67b3a] font-semibold">Contact</a>
+        <a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="py-2 text-[#25D366] font-semibold flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = !menu?.classList.contains('hidden');
+      menu?.classList.toggle('hidden');
+      iconOpen?.classList.toggle('hidden');
+      iconClose?.classList.toggle('hidden');
+      toggle?.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    menu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu?.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="section-warm py-20 md:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Breadcrumbs -->
+        <nav class="mb-6" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-1.5 text-sm text-gray-500">
+            <li>
+              <a href="/" class="hover:text-[#d67b3a] transition-colors">Home</a>
+            </li>
+            <li aria-hidden="true">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </li>
+            <li>
+              <span class="text-gray-900 font-medium">Contact</span>
+            </li>
+          </ol>
+        </nav>
+
+        <span class="text-[#d67b3a] text-sm font-semibold uppercase tracking-widest mb-3 block">Contacteer ons</span>
+        <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-gray-900 tracking-tighter leading-tight mb-4" data-animate>
+          Contact opnemen met uw klusjesman
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed max-w-2xl" data-animate>
+          Een klus gepland of een vraag over <a href="/#diensten" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">onze diensten</a>? Neem gerust contact op. U krijgt antwoord binnen 24 uur. Liever bellen of WhatsApp? Dat kan uiteraard ook.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section class="py-20 md:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-5 gap-8 lg:gap-12">
+
+          <!-- LEFT: Contact info -->
+          <div class="lg:col-span-2 space-y-5" data-animate>
+
+            <!-- Phone -->
+            <a href="tel:0487726546" class="block bg-white border border-gray-200 shadow-sm rounded-xl p-5 hover:border-[#d67b3a]/40 hover:shadow-md transition-all duration-200 group">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center shrink-0 group-hover:bg-[#d67b3a]/20 transition-colors">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-gray-900 tracking-tighter mb-0.5">Bellen</h3>
+                  <p class="text-[#d67b3a] font-semibold">0487 72 65 46</p>
+                  <p class="text-xs text-gray-500 mt-1">Snelste manier om ons te bereiken</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="block bg-white border border-gray-200 shadow-sm rounded-xl p-5 hover:border-[#25D366]/40 hover:shadow-md transition-all duration-200 group">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center shrink-0 group-hover:bg-[#25D366]/20 transition-colors">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-gray-900 tracking-tighter mb-0.5">WhatsApp</h3>
+                  <p class="text-[#25D366] font-semibold">Stuur een bericht</p>
+                  <p class="text-xs text-gray-500 mt-1">Handig om foto's mee te sturen</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:slim.klussen@gmail.com" class="block bg-white border border-gray-200 shadow-sm rounded-xl p-5 hover:border-[#d67b3a]/40 hover:shadow-md transition-all duration-200 group">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center shrink-0 group-hover:bg-[#d67b3a]/20 transition-colors">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-gray-900 tracking-tighter mb-0.5">E-mail</h3>
+                  <p class="text-[#d67b3a] font-semibold">slim.klussen@gmail.com</p>
+                  <p class="text-xs text-gray-500 mt-1">Voor uitgebreide omschrijvingen</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Address -->
+            <div class="bg-white border border-gray-200 shadow-sm rounded-xl p-5">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-gray-900 tracking-tighter mb-0.5">Adres</h3>
+                  <p class="text-gray-700 text-sm">Wanzelestraat 27</p>
+                  <p class="text-gray-700 text-sm">9260 Schellebelle (Wichelen)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business hours -->
+            <div class="bg-white border border-gray-200 shadow-sm rounded-xl p-5">
+              <div class="flex items-start gap-4">
+                <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-gray-900 tracking-tighter mb-2">Openingsuren</h3>
+                  <dl class="text-sm space-y-1">
+                    <div class="flex justify-between gap-4">
+                      <dt class="text-gray-500">Maandag - Vrijdag</dt>
+                      <dd class="text-gray-900 font-medium">08:00 - 18:00</dd>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                      <dt class="text-gray-500">Zaterdag</dt>
+                      <dd class="text-gray-900 font-medium">Op afspraak</dd>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                      <dt class="text-gray-500">Zondag</dt>
+                      <dd class="text-gray-500">Gesloten</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <!-- BTW info -->
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-500">
+              <p>BTW: BE1025378882</p>
+              <p class="mt-1">BA verzekerd voor alle werken</p>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Contact form -->
+          <div class="lg:col-span-3" data-animate>
+            <div class="bg-white border border-gray-200 shadow-lg rounded-xl p-6 sm:p-8">
+              <h2 class="text-xl font-extrabold text-gray-900 tracking-tighter mb-1">Gratis offerte aanvragen bij uw klusjesman</h2>
+              <p class="text-sm text-gray-500 mb-6">Beschrijf uw klus en voeg eventueel foto's toe. U ontvangt antwoord binnen 24 uur. Niet zeker welke dienst u nodig hebt? Bekijk <a href="/#diensten" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">ons aanbod</a>.</p>
+
+              <form id="contact-form" class="space-y-4" novalidate>
+                <!-- Honeypot -->
+                <div class="hidden" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="naam" class="block text-sm font-medium text-gray-700 mb-1">Naam <span class="text-[#d67b3a]">*</span></label>
+                    <input
+                      type="text"
+                      id="naam"
+                      name="naam"
+                      required
+                      aria-required="true"
+                      placeholder="Uw volledige naam"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#d67b3a] focus:ring-2 focus:ring-[#d67b3a]/20 outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                    />
+                    <p class="error-message" id="naam-error">Vul uw naam in</p>
+                  </div>
+                  <div>
+                    <label for="telefoon" class="block text-sm font-medium text-gray-700 mb-1">Telefoon <span class="text-[#d67b3a]">*</span></label>
+                    <input
+                      type="tel"
+                      id="telefoon"
+                      name="telefoon"
+                      required
+                      aria-required="true"
+                      placeholder="0400 00 00 00"
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#d67b3a] focus:ring-2 focus:ring-[#d67b3a]/20 outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                    />
+                    <p class="error-message" id="telefoon-error">Vul uw telefoonnummer in</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="uw@email.be"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#d67b3a] focus:ring-2 focus:ring-[#d67b3a]/20 outline-none transition-all text-gray-900 placeholder:text-gray-400"
+                  />
+                </div>
+
+                <div>
+                  <label for="bericht" class="block text-sm font-medium text-gray-700 mb-1">Beschrijf uw klus <span class="text-[#d67b3a]">*</span></label>
+                  <textarea
+                    id="bericht"
+                    name="bericht"
+                    rows="4"
+                    required
+                    aria-required="true"
+                    placeholder="Vertel kort wat u nodig hebt: welk type werk, in welke ruimte, eventuele details..."
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:border-[#d67b3a] focus:ring-2 focus:ring-[#d67b3a]/20 outline-none transition-all resize-none text-gray-900 placeholder:text-gray-400"
+                  ></textarea>
+                  <p class="error-message" id="klus-error">Beschrijf uw klus</p>
+                </div>
+
+                <!-- Photo upload -->
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Foto's toevoegen <span class="text-gray-500 font-normal">(optioneel, max 3)</span></label>
+                  <div
+                    id="drop-zone"
+                    class="border-2 border-dashed border-gray-300 hover:border-[#d67b3a]/50 rounded-lg p-6 text-center cursor-pointer transition-colors duration-200"
+                    style="background: #faf8f6;"
+                  >
+                    <svg class="w-8 h-8 mx-auto text-gray-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    <p class="text-sm text-gray-700 font-medium">Sleep foto's hierheen of klik om te selecteren</p>
+                    <p class="text-xs text-gray-500 mt-1">JPG, PNG of WebP - max 5 MB per foto</p>
+                    <input
+                      type="file"
+                      id="foto-input"
+                      name="fotos"
+                      multiple
+                      accept="image/jpeg,image/png,image/webp"
+                      class="hidden"
+                    />
+                  </div>
+                  <!-- Preview grid -->
+                  <div id="preview-grid" class="grid grid-cols-3 gap-3 mt-3 hidden"></div>
+                </div>
+
+                <!-- Privacy checkbox -->
+                <div class="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    required
+                    aria-required="true"
+                    class="mt-1 w-4 h-4 rounded-none border-gray-300 bg-white text-[#d67b3a] focus:ring-[#d67b3a] cursor-pointer"
+                  />
+                  <label for="privacy" class="text-sm text-gray-600 cursor-pointer">
+                    Ik ga akkoord dat SLIM mijn gegevens gebruikt om mij te contacteren over mijn aanvraag. <span class="text-[#d67b3a]">*</span>
+                  </label>
+                  <p class="error-message" id="privacy-error">U moet akkoord gaan met het privacybeleid</p>
+                </div>
+
+                <!-- Submit button -->
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full bg-[#d67b3a] hover:bg-[#c06a2e] text-white py-4 rounded-lg font-bold text-lg transition-all duration-200 focus:ring-2 focus:ring-[#d67b3a] focus:ring-offset-2 focus:ring-offset-white disabled:opacity-60 disabled:cursor-not-allowed shadow-sm"
+                >
+                  Verstuur uw aanvraag — gratis en vrijblijvend
+                </button>
+                <p class="text-center text-sm text-gray-500">U ontvangt antwoord binnen 24 uur.</p>
+              </form>
+
+              <!-- Success state -->
+              <div id="form-success" class="hidden text-center py-8">
+                <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <h3 class="text-xl font-extrabold text-gray-900 tracking-tighter mb-2">Bedankt voor uw aanvraag!</h3>
+                <p class="text-gray-600 mb-6">U ontvangt zo snel mogelijk een antwoord.</p>
+                <a href="/" class="inline-flex items-center gap-2 text-[#d67b3a] hover:text-[#c06a2e] font-semibold transition-colors">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                  Terug naar de homepagina
+                </a>
+              </div>
+
+              <!-- Error state -->
+              <div id="form-error" class="hidden mt-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm">
+                <p class="font-semibold">Er ging iets mis bij het versturen.</p>
+                <p class="mt-1">Probeer het opnieuw of neem rechtstreeks contact op via telefoon of WhatsApp.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-950 border-t border-gray-800 text-gray-400" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <img src="/logo-dark.png" alt="SLIM Klussen & Renoveren" class="h-12 w-auto mb-4" />
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Ervaren klusjesman in de regio Wetteren. Herstellingen, renovaties, montage en recuperatie.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Pagina's</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Home</a></li>
+            <li><a href="/over-ons" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Over ons</a></li>
+            <li><a href="/contact" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Contact</a></li>
+            <li><a href="/#diensten" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Diensten</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="tel:0487726546" class="text-gray-400 hover:text-[#d67b3a] transition-colors">0487 72 65 46</a></li>
+            <li><a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="text-gray-400 hover:text-[#d67b3a] transition-colors">WhatsApp</a></li>
+            <li><a href="mailto:slim.klussen@gmail.com" class="text-gray-400 hover:text-[#d67b3a] transition-colors">slim.klussen@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Gegevens</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Wanzelestraat 27</li>
+            <li>9260 Schellebelle (Wichelen)</li>
+            <li>BTW: BE1025378882</li>
+            <li>Ma - Vr: 08:00 - 18:00</li>
+            <li>BA verzekerd</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+        <p>&copy; {new Date().getFullYear()} SLIM — Klussen & Renoveren. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a
+    href="https://wa.me/32487726546?text=Hallo%2C%20ik%20heb%20interesse%20in%20een%20offerte."
+    target="_blank"
+    rel="noopener"
+    class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-all duration-200 hidden lg:flex"
+    aria-label="WhatsApp"
+  >
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Contact form scripts -->
+  <script>
+    // === File handling ===
+    const MAX_FILES = 3;
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+    const MAX_DIMENSION = 1200;
+
+    const dropZone = document.getElementById('drop-zone') as HTMLDivElement;
+    const fileInput = document.getElementById('foto-input') as HTMLInputElement;
+    const previewGrid = document.getElementById('preview-grid') as HTMLDivElement;
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const formSuccess = document.getElementById('form-success') as HTMLDivElement;
+    const formError = document.getElementById('form-error') as HTMLDivElement;
+
+    let selectedFiles: File[] = [];
+
+    // Click to select
+    dropZone?.addEventListener('click', () => {
+      fileInput?.click();
+    });
+
+    // File input change
+    fileInput?.addEventListener('change', () => {
+      if (fileInput.files) {
+        handleFiles(Array.from(fileInput.files));
+      }
+    });
+
+    // Drag & drop
+    dropZone?.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropZone.classList.add('border-[#d67b3a]/50');
+      dropZone.style.background = '#fef6f0';
+    });
+
+    dropZone?.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropZone.classList.remove('border-[#d67b3a]/50');
+      dropZone.style.background = '#faf8f6';
+    });
+
+    dropZone?.addEventListener('drop', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropZone.classList.remove('border-[#d67b3a]/50');
+      dropZone.style.background = '#faf8f6';
+      if (e.dataTransfer?.files) {
+        handleFiles(Array.from(e.dataTransfer.files));
+      }
+    });
+
+    function handleFiles(files: File[]) {
+      const imageFiles = files.filter(f =>
+        ['image/jpeg', 'image/png', 'image/webp'].includes(f.type)
+      );
+
+      for (const file of imageFiles) {
+        if (selectedFiles.length >= MAX_FILES) {
+          alert(`Maximum ${MAX_FILES} foto's toegestaan.`);
+          break;
+        }
+        if (file.size > MAX_SIZE) {
+          alert(`"${file.name}" is te groot (max 5 MB).`);
+          continue;
+        }
+        selectedFiles.push(file);
+      }
+
+      renderPreviews();
+    }
+
+    function renderPreviews() {
+      if (!previewGrid) return;
+
+      if (selectedFiles.length === 0) {
+        previewGrid.classList.add('hidden');
+        previewGrid.innerHTML = '';
+        return;
+      }
+
+      previewGrid.classList.remove('hidden');
+      previewGrid.innerHTML = '';
+
+      selectedFiles.forEach((file, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'relative aspect-square bg-gray-100 rounded-lg overflow-hidden border border-gray-200';
+
+        const img = document.createElement('img');
+        img.className = 'w-full h-full object-cover';
+        img.alt = file.name;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          img.src = e.target?.result as string;
+        };
+        reader.readAsDataURL(file);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'absolute top-1 right-1 w-6 h-6 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-sm transition-colors';
+        removeBtn.innerHTML = '&times;';
+        removeBtn.setAttribute('aria-label', `Verwijder ${file.name}`);
+        removeBtn.addEventListener('click', () => {
+          selectedFiles.splice(index, 1);
+          renderPreviews();
+        });
+
+        wrapper.appendChild(img);
+        wrapper.appendChild(removeBtn);
+        previewGrid.appendChild(wrapper);
+      });
+    }
+
+    // === Image resize ===
+    function resizeImage(file: File): Promise<Blob> {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          img.src = e.target?.result as string;
+        };
+
+        img.onload = () => {
+          let { width, height } = img;
+
+          // Only resize if larger than max dimension
+          if (width <= MAX_DIMENSION && height <= MAX_DIMENSION) {
+            resolve(file);
+            return;
+          }
+
+          if (width > height) {
+            height = Math.round((height * MAX_DIMENSION) / width);
+            width = MAX_DIMENSION;
+          } else {
+            width = Math.round((width * MAX_DIMENSION) / height);
+            height = MAX_DIMENSION;
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+
+          if (!ctx) {
+            reject(new Error('Canvas context unavailable'));
+            return;
+          }
+
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                resolve(blob);
+              } else {
+                reject(new Error('Canvas toBlob failed'));
+              }
+            },
+            'image/jpeg',
+            0.85
+          );
+        };
+
+        img.onerror = () => reject(new Error('Image load failed'));
+        reader.onerror = () => reject(new Error('File read failed'));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // === Field validation ===
+    function validateField(input: HTMLInputElement | HTMLTextAreaElement, errorId: string): boolean {
+      const errorEl = document.getElementById(errorId);
+      if (!input.value.trim()) {
+        input.classList.add('form-field-error');
+        input.classList.remove('form-field-success');
+        errorEl?.classList.add('show');
+        return false;
+      } else {
+        input.classList.remove('form-field-error');
+        input.classList.add('form-field-success');
+        errorEl?.classList.remove('show');
+        return true;
+      }
+    }
+
+    const naamInput = document.getElementById('naam') as HTMLInputElement;
+    const telefoonInput = document.getElementById('telefoon') as HTMLInputElement;
+    const klusInput = document.getElementById('bericht') as HTMLTextAreaElement;
+
+    // Blur event listeners for real-time validation
+    naamInput?.addEventListener('blur', () => validateField(naamInput, 'naam-error'));
+    telefoonInput?.addEventListener('blur', () => validateField(telefoonInput, 'telefoon-error'));
+    klusInput?.addEventListener('blur', () => validateField(klusInput, 'klus-error'));
+
+    // Clear error on input
+    [naamInput, telefoonInput, klusInput].forEach(input => {
+      input?.addEventListener('input', () => {
+        if (input.value.trim()) {
+          input.classList.remove('form-field-error');
+          input.classList.add('form-field-success');
+          const errorId = input.id === 'bericht' ? 'klus-error' : input.id + '-error';
+          document.getElementById(errorId)?.classList.remove('show');
+        }
+      });
+    });
+
+    // === Form submission ===
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError?.classList.add('hidden');
+
+      // Check honeypot
+      const honeypot = (form.querySelector('[name="website"]') as HTMLInputElement)?.value;
+      if (honeypot) return;
+
+      // Validate all fields
+      let isValid = true;
+      isValid = validateField(naamInput, 'naam-error') && isValid;
+      isValid = validateField(telefoonInput, 'telefoon-error') && isValid;
+      isValid = validateField(klusInput, 'klus-error') && isValid;
+
+      // Check privacy checkbox
+      const privacyCheckbox = form.querySelector('input[name="privacy"]') as HTMLInputElement;
+      const privacyError = document.getElementById('privacy-error');
+      if (privacyCheckbox && !privacyCheckbox.checked) {
+        privacyError?.classList.add('show');
+        isValid = false;
+      } else {
+        privacyError?.classList.remove('show');
+      }
+
+      if (!isValid) return;
+
+      // Disable button and show loading spinner
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Verzenden...';
+
+      try {
+        const naam = naamInput.value.trim();
+        const telefoon = telefoonInput.value.trim();
+        const bericht = klusInput.value.trim();
+
+        const formData = new FormData();
+        formData.append('naam', naam);
+        formData.append('telefoon', telefoon);
+        formData.append('email', (form.querySelector('[name="email"]') as HTMLInputElement)?.value.trim() || '');
+        formData.append('bericht', bericht);
+
+        // Resize and append photos
+        for (let i = 0; i < selectedFiles.length; i++) {
+          const resized = await resizeImage(selectedFiles[i]);
+          const fileName = selectedFiles[i].name.replace(/\.[^.]+$/, '.jpg');
+          formData.append('fotos', resized, fileName);
+        }
+
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          formSuccess?.classList.remove('hidden');
+
+          // Success animation
+          const successEl = document.getElementById('form-success');
+          if (successEl) {
+            successEl.style.transform = 'scale(0.9)';
+            successEl.style.opacity = '0';
+            successEl.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+            requestAnimationFrame(() => {
+              successEl.style.transform = 'scale(1)';
+              successEl.style.opacity = '1';
+            });
+          }
+        } else {
+          throw new Error('Server error');
+        }
+      } catch {
+        formError?.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Verstuur uw aanvraag — gratis en vrijblijvend';
+      }
+    });
+  </script>
+
+</Layout>

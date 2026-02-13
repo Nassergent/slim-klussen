@@ -1,35 +1,195 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
+import { diensten } from '../data/diensten';
 
 interface Props {
   title: string;
   description: string;
+  ogImage?: string;
+  canonical?: string;
+  keywords?: string;
+  noindex?: boolean;
+  faqSchema?: { vraag: string; antwoord: string }[];
+  schemaOverride?: Record<string, unknown>;
+  serviceSchema?: Record<string, unknown>;
+  breadcrumbs?: { name: string; url: string }[];
+  aggregateRating?: { ratingValue: number; reviewCount: number };
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  ogImage,
+  canonical,
+  keywords,
+  noindex = false,
+  faqSchema,
+  schemaOverride,
+  serviceSchema,
+  breadcrumbs,
+  aggregateRating,
+} = Astro.props;
+
+const siteUrl = 'https://slim-klussen.be';
+const pageUrl = canonical || Astro.url.href;
+const ogImg = ogImage || `${siteUrl}/hero.webp`;
+
+const defaultSchema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "SLIM — Klussen & Renoveren",
+  "image": `${siteUrl}/hero.webp`,
+  "logo": `${siteUrl}/favicon.png`,
+  "description": "Ervaren klusjesman in de regio Wetteren. Herstellingen, renovaties, montage en recuperatie.",
+  "url": siteUrl,
+  "telephone": "+32487726546",
+  "email": "slim.klussen@gmail.com",
+  "priceRange": "$$",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Overschrijving",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Wanzelestraat 27",
+    "addressLocality": "Schellebelle",
+    "addressRegion": "Oost-Vlaanderen",
+    "postalCode": "9260",
+    "addressCountry": "BE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.0038,
+    "longitude": 3.8842
+  },
+  "areaServed": [
+    { "@type": "State", "name": "Oost-Vlaanderen" },
+    { "@type": "City", "name": "Gent" },
+    { "@type": "City", "name": "Aalst" },
+    { "@type": "City", "name": "Sint-Niklaas" },
+    { "@type": "City", "name": "Dendermonde" },
+    { "@type": "City", "name": "Wetteren" },
+    { "@type": "City", "name": "Lokeren" },
+    { "@type": "City", "name": "Zele" },
+    { "@type": "City", "name": "Hamme" },
+    { "@type": "City", "name": "Temse" },
+    { "@type": "City", "name": "Beveren" },
+    { "@type": "City", "name": "Destelbergen" },
+    { "@type": "City", "name": "Merelbeke" },
+    { "@type": "City", "name": "Melle" },
+    { "@type": "City", "name": "Laarne" },
+    { "@type": "City", "name": "Berlare" },
+    { "@type": "City", "name": "Wichelen" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
+  "vatID": "BE1025378882",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+32487726546",
+    "contactType": "customer service",
+    "availableLanguage": ["Dutch"],
+    "areaServed": "BE"
+  },
+  "sameAs": [
+    "https://wa.me/32487726546"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Diensten",
+    "itemListElement": diensten.map((d) => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": d.naam,
+        "description": d.korteOmschrijving,
+        "url": `${siteUrl}/diensten/${d.slug}`
+      }
+    }))
+  }
+};
+
+// Add aggregateRating if provided
+if (aggregateRating) {
+  defaultSchema["aggregateRating"] = {
+    "@type": "AggregateRating",
+    "ratingValue": aggregateRating.ratingValue,
+    "reviewCount": aggregateRating.reviewCount,
+    "bestRating": 5,
+    "worstRating": 1
+  };
+}
+
+const businessSchema = schemaOverride
+  ? { "@context": "https://schema.org", ...schemaOverride }
+  : defaultSchema;
+
+const faqPageSchema = faqSchema && faqSchema.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqSchema.map((faq) => ({
+        "@type": "Question",
+        "name": faq.vraag,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.antwoord
+        }
+      }))
+    }
+  : null;
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": breadcrumbs.map((crumb, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": crumb.name,
+        "item": crumb.url
+      }))
+    }
+  : null;
 ---
 
 <!DOCTYPE html>
 <html lang="nl">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={Astro.url.href} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    {noindex
+      ? <meta name="robots" content="noindex, nofollow" />
+      : <meta name="robots" content="index, follow" />
+    }
+    <link rel="canonical" href={pageUrl} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nl_BE" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={new URL('/hero.webp', Astro.site).href} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={ogImg} />
+    <meta property="og:image:alt" content="SLIM Klussen & Renoveren - Klusjesman regio Wetteren" />
     <meta property="og:image:width" content="800" />
     <meta property="og:image:height" content="1066" />
     <meta property="og:site_name" content="SLIM Klussen & Renoveren" />
@@ -38,101 +198,236 @@ const { title, description } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL('/hero.webp', Astro.site).href} />
+    <meta name="twitter:image" content={ogImg} />
 
-    <!-- Fonts -->
+    <!-- Fonts - Plus Jakarta Sans (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
     </noscript>
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "SLIM — Klussen & Renoveren",
-      "image": "https://slim-klussen.be/hero.webp",
-      "description": "Ervaren klusjesman in Oost-Vlaanderen. Herstellingen, renovaties, montage en recuperatie.",
-      "url": "https://slim-klussen.be",
-      "telephone": "+32487726546",
-      "email": "slim.klussen@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Wanzelestraat 27",
-        "addressLocality": "Schellebelle (Wichelen)",
-        "postalCode": "9260",
-        "addressCountry": "BE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.0038,
-        "longitude": 3.8842
-      },
-      "areaServed": [
-        { "@type": "State", "name": "Oost-Vlaanderen" },
-        { "@type": "City", "name": "Gent" },
-        { "@type": "City", "name": "Aalst" },
-        { "@type": "City", "name": "Sint-Niklaas" },
-        { "@type": "City", "name": "Dendermonde" },
-        { "@type": "City", "name": "Wetteren" },
-        { "@type": "City", "name": "Lokeren" },
-        { "@type": "City", "name": "Zele" },
-        { "@type": "City", "name": "Hamme" },
-        { "@type": "City", "name": "Temse" },
-        { "@type": "City", "name": "Beveren" },
-        { "@type": "City", "name": "Destelbergen" },
-        { "@type": "City", "name": "Merelbeke" },
-        { "@type": "City", "name": "Melle" },
-        { "@type": "City", "name": "Laarne" },
-        { "@type": "City", "name": "Berlare" },
-        { "@type": "City", "name": "Wichelen" }
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        }
-      ],
-      "vatID": "BE1025378882",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Diensten",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Herstellingen" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montage" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kleine renovaties" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afbraak met recuperatie" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hergebruik en herplaatsing" } }
-        ]
-      }
-    })} />
+    <!-- View Transitions -->
+    <ViewTransitions />
 
-    <!-- FAQ Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Welke klussen voert SLIM uit?", "acceptedAnswer": { "@type": "Answer", "text": "Herstellingen, montage, kleine renovaties, afbraak met recuperatie en herplaatsing van materialen. Van een lekkende kraan tot een complete badkamerrenovatie." } },
-        { "@type": "Question", "name": "Werkt SLIM ook in mijn gemeente?", "acceptedAnswer": { "@type": "Answer", "text": "SLIM is actief in heel Oost-Vlaanderen: Gent, Aalst, Sint-Niklaas, Dendermonde, Wetteren, Lokeren en omstreken." } },
-        { "@type": "Question", "name": "Hoe snel kan SLIM langskomen?", "acceptedAnswer": { "@type": "Answer", "text": "U krijgt antwoord binnen 24 uur. Spoedinterventies zijn mogelijk tegen een toeslag." } },
-        { "@type": "Question", "name": "Is er garantie op de uitgevoerde werken?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. SLIM biedt garantie op alle uitgevoerde werken en nieuw geplaatste onderdelen." } },
-        { "@type": "Question", "name": "Wat betekent recuperatie en hergebruik?", "acceptedAnswer": { "@type": "Answer", "text": "Bij afbraakwerken bekijken we of materialen zoals deuren, kranen of tegels herbruikbaar zijn. Dit gebeurt alleen op uw vraag en wanneer het technisch verantwoord is." } },
-        { "@type": "Question", "name": "Is SLIM verzekerd?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. SLIM is BA verzekerd voor alle uitgevoerde werken." } },
-        { "@type": "Question", "name": "Hoe vraag ik een offerte aan?", "acceptedAnswer": { "@type": "Answer", "text": "Bel 0487 72 65 46, stuur een WhatsApp-bericht of mail naar slim.klussen@gmail.com. U ontvangt een vrijblijvende offerte." } },
-        { "@type": "Question", "name": "Werkt SLIM ook in het weekend?", "acceptedAnswer": { "@type": "Answer", "text": "Neem contact op om de mogelijkheden te bespreken. Flexibele planning waar mogelijk." } }
-      ]
-    })} />
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+
+    {faqPageSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+    )}
+
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+
+    {serviceSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify({ "@context": "https://schema.org", ...serviceSchema })} />
+    )}
   </head>
   <body class="bg-white antialiased">
-    <slot />
+    <!-- Page preloader -->
+    <div id="preloader" class="fixed inset-0 z-[200] bg-white flex items-center justify-center transition-opacity duration-500">
+      <div class="text-center">
+        <img src="/logo.png" alt="SLIM Klussen & Renoveren" class="w-20 h-20 mx-auto mb-2" />
+        <div class="mt-4 w-32 h-1 bg-gray-200 rounded-full mx-auto overflow-hidden">
+          <div id="preloader-bar" class="h-full bg-[#d67b3a] rounded-full" style="width: 0%; transition: width 0.3s ease;"></div>
+        </div>
+        <p id="preloader-percent" class="text-xs text-gray-400 mt-2 font-medium">0%</p>
+      </div>
+    </div>
+    <script is:inline>
+      (function() {
+        var bar = document.getElementById('preloader-bar');
+        var percent = document.getElementById('preloader-percent');
+        var preloader = document.getElementById('preloader');
+        var progress = 0;
+        var interval = setInterval(function() {
+          progress += Math.random() * 30 + 10;
+          if (progress > 90) progress = 90;
+          if (bar) bar.style.width = progress + '%';
+          if (percent) percent.textContent = Math.round(progress) + '%';
+        }, 200);
+        window.addEventListener('load', function() {
+          clearInterval(interval);
+          if (bar) bar.style.width = '100%';
+          if (percent) percent.textContent = '100%';
+          setTimeout(function() {
+            if (preloader) {
+              preloader.style.opacity = '0';
+              preloader.style.pointerEvents = 'none';
+              setTimeout(function() { preloader.remove(); }, 500);
+            }
+          }, 400);
+        });
+      })();
+    </script>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-[#d67b3a] z-[100] transition-none" style="width: 0%; transform-origin: left;"></div>
+    <slot transition:animate="fade" />
+
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      import Lenis from 'lenis';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Initialize Lenis smooth scroll
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+
+      // Connect Lenis to GSAP ScrollTrigger
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time: number) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // Scroll progress bar
+      const progressBar = document.getElementById('scroll-progress');
+      if (progressBar) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          progressBar.style.width = progress + '%';
+        }, { passive: true });
+      }
+
+      // Smart nav: hide on scroll down, show on scroll up
+      const header = document.querySelector('header');
+      let lastScrollY = 0;
+      let ticking = false;
+
+      function updateNav() {
+        const currentScrollY = window.scrollY;
+        if (header) {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            header.style.transform = 'translateY(-100%)';
+            header.style.transition = 'transform 0.3s ease';
+          } else {
+            header.style.transform = 'translateY(0)';
+            header.style.transition = 'transform 0.3s ease';
+          }
+        }
+        lastScrollY = currentScrollY;
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateNav);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Animate [data-animate] elements
+      document.querySelectorAll('[data-animate]').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      // Animate [data-animate-stagger] children
+      document.querySelectorAll('[data-animate-stagger]').forEach((container) => {
+        const children = container.children;
+        gsap.fromTo(children,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      // Parallax effect on hero image
+      const heroImg = document.querySelector('[data-parallax]');
+      if (heroImg) {
+        gsap.to(heroImg, {
+          y: 60,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: heroImg,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+      }
+
+      // Counter animation for stats
+      document.querySelectorAll('[data-count]').forEach((el) => {
+        const target = parseInt(el.getAttribute('data-count') || '0');
+        gsap.fromTo(el,
+          { textContent: 0 },
+          {
+            textContent: target,
+            duration: 2,
+            ease: 'power1.out',
+            snap: { textContent: 1 },
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      // SVG draw-on-scroll for [data-draw] elements
+      document.querySelectorAll('[data-draw]').forEach((el) => {
+        const paths = el.querySelectorAll('path, circle, line, rect');
+        paths.forEach((path) => {
+          const p = path as SVGGeometryElement;
+          if (p.getTotalLength) {
+            const length = p.getTotalLength();
+            gsap.set(p, { strokeDasharray: length, strokeDashoffset: length });
+            gsap.to(p, {
+              strokeDashoffset: 0,
+              duration: 1.5,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+              }
+            });
+          }
+        });
+      });
+
+      // Re-init on page navigation (View Transitions)
+      document.addEventListener('astro:page-load', () => {
+        ScrollTrigger.refresh();
+      });
+    </script>
   </body>
 </html>

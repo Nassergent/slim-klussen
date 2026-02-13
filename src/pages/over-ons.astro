@@ -1,0 +1,388 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Over ons | Klusjesman Wetteren | SLIM"
+  description="Maak kennis met SLIM: 15+ jaar ervaring als klusjesman in de regio Wetteren. Rechtstreeks contact met uw vakman. Gevestigd in Schellebelle (Wichelen)."
+  canonical="https://slim-klussen.be/over-ons"
+  keywords="klusjesman wetteren, over slim klussen, klusbedrijf schellebelle, vakman wichelen, ervaren klusjesman wetteren, renovatie gent"
+>
+
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#d67b3a] focus:text-white focus:px-4 focus:py-2 focus:rounded-sm focus:text-sm focus:font-semibold">Ga naar inhoud</a>
+
+  <!-- HEADER / NAV (White) -->
+  <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm" role="banner">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/logo.png" alt="SLIM Klussen & Renoveren" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600" aria-label="Hoofdnavigatie">
+        <a href="/#diensten" class="hover:text-[#d67b3a] transition-colors">Diensten</a>
+        <a href="/#werkwijze" class="hover:text-[#d67b3a] transition-colors">Werkwijze</a>
+        <a href="/over-ons" class="text-[#d67b3a] font-semibold">Over ons</a>
+        <a href="/contact" class="hover:text-[#d67b3a] transition-colors">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a
+          href="tel:0487726546"
+          class="inline-flex items-center gap-2 bg-[#d67b3a] hover:bg-[#c06a2e] text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm transition-all duration-200"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <span class="hidden sm:inline">0487 72 65 46</span>
+        </a>
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 text-gray-600 hover:text-[#d67b3a] transition-colors"
+          aria-label="Menu openen"
+          aria-expanded="false"
+        >
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white/98 backdrop-blur-md" aria-label="Mobiel menu">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm font-medium text-gray-600">
+        <a href="/#diensten" class="py-2 hover:text-[#d67b3a] transition-colors">Diensten</a>
+        <a href="/#werkwijze" class="py-2 hover:text-[#d67b3a] transition-colors">Werkwijze</a>
+        <a href="/over-ons" class="py-2 text-[#d67b3a] font-semibold">Over ons</a>
+        <a href="/contact" class="py-2 hover:text-[#d67b3a] transition-colors">Contact</a>
+        <a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="py-2 text-[#25D366] font-semibold flex items-center gap-2">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = !menu?.classList.contains('hidden');
+      menu?.classList.toggle('hidden');
+      iconOpen?.classList.toggle('hidden');
+      iconClose?.classList.toggle('hidden');
+      toggle?.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    menu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu?.classList.add('hidden');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <main id="main-content">
+
+    <!-- HERO / INTRO (section-warm) -->
+    <section class="section-warm py-20 md:py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <!-- Breadcrumbs -->
+        <nav class="mb-6" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-1.5 text-sm text-gray-500">
+            <li>
+              <a href="/" class="hover:text-[#d67b3a] transition-colors">Home</a>
+            </li>
+            <li aria-hidden="true">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+            </li>
+            <li>
+              <span class="text-gray-900 font-medium">Over ons</span>
+            </li>
+          </ol>
+        </nav>
+
+        <h1 class="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-gray-900 tracking-tighter leading-tight mb-6" data-animate>
+          Over SLIM — uw klusjesman in Wetteren en omstreken
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mb-4" data-animate>
+          SLIM is het klusbedrijf van een ervaren vakman die al meer dan 15 jaar actief is in de bouwsector. Gevestigd in Schellebelle (Wichelen), bedienen we de regio Wetteren met diensten zoals <a href="/diensten/herstellingen" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">herstellingen</a>, <a href="/diensten/kleine-renovaties" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">kleine renovaties</a>, <a href="/diensten/montage" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">montage</a> en <a href="/diensten/schilderwerken" class="text-[#d67b3a] hover:text-[#c06a2e] font-medium">schilderwerken</a>.
+        </p>
+        <p class="text-lg text-gray-600 leading-relaxed" data-animate>
+          De naam zegt het zelf: we werken slim. Dat betekent efficiënt, doordacht en zonder onnodige kosten. U hebt rechtstreeks contact met de persoon die het werk uitvoert — geen callcenter, geen projectmanager, geen tussenpersonen. Gewoon een vakman die luistert, adviseert en levert.
+        </p>
+      </div>
+    </section>
+
+    <!-- ONZE AANPAK (white) -->
+    <section class="py-20 md:py-24 border-t border-gray-200">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div data-animate>
+          <span class="text-[#d67b3a] text-sm font-semibold uppercase tracking-widest mb-3 block">Onze aanpak</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tighter mb-6">Hoe uw klusjesman te werk gaat</h2>
+        </div>
+
+        <div class="space-y-5" data-animate>
+          <p class="text-gray-600 leading-relaxed text-[1.05rem]">
+            Bij SLIM draait alles om duidelijkheid en vertrouwen. Elke klus begint met een eerlijk gesprek: wat hebt u nodig, wat is haalbaar en wat kost het? U ontvangt een transparante offerte zonder verborgen kosten. Pas als u akkoord gaat, gaan we aan de slag.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-[1.05rem]">
+            Als eenmanszaak ben ik persoonlijk betrokken bij elke klus. U spreekt met dezelfde persoon die ook het werk uitvoert. Dat zorgt voor korte communicatielijnen, snelle beslissingen en een resultaat dat exact aansluit bij uw verwachtingen.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-[1.05rem]">
+            Ik combineer meerdere vaardigheden: van sanitair en elektriciteit tot schilderwerk, tegels en montage. Dat bespaart u het gedoe van meerdere aannemers voor één project. Eén aanspreekpunt, één factuur, één verantwoordelijke.
+          </p>
+          <p class="text-gray-600 leading-relaxed text-[1.05rem]">
+            Na afloop ruim ik de werkplaats netjes op en controleren we samen het resultaat. Een klus is pas af als u tevreden bent. Zo simpel is het.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAAROM SLIM (section-warm) -->
+    <section class="section-warm py-20 md:py-24 border-t border-gray-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10" data-animate>
+          <span class="text-[#d67b3a] text-sm font-semibold uppercase tracking-widest mb-3 block">Waarom SLIM</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tighter mb-4">Waarom SLIM als uw klusbedrijf kiezen</h2>
+          <p class="text-gray-500 text-lg max-w-xl mx-auto">Vier waarden die elk project sturen</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5" data-animate>
+          <!-- Vakmanschap -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#d67b3a]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+            <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-5.658 3.286m0 0a1.966 1.966 0 01-.812-.218 1.966 1.966 0 01-.654-2.818l5.124-6.638m1.5 6.388l5.658 3.286m0 0a1.966 1.966 0 00.812-.218 1.966 1.966 0 00.654-2.818l-5.124-6.638m-1.5 6.388V4.275c0-.846.334-1.657.93-2.255A3.197 3.197 0 0112 1c.851 0 1.666.337 2.27.937.596.598.93 1.409.93 2.255v4.507" /></svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-gray-900 tracking-tighter mb-2">Vakmanschap</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Meer dan 15 jaar hands-on ervaring in de bouw. Ik ken de materialen, de technieken en de valkuilen. Geen improvisatie, maar solide vakwerk dat meegaat.
+            </p>
+          </div>
+
+          <!-- Eerlijkheid -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#d67b3a]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+            <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-gray-900 tracking-tighter mb-2">Eerlijkheid</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              U krijgt altijd een duidelijke offerte vooraf. Geen verborgen kosten, geen onaangename verrassingen. Als iets niet zinvol is, zeg ik dat — ook als het mij een klus kost.
+            </p>
+          </div>
+
+          <!-- Duurzaamheid -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#d67b3a]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+            <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-gray-900 tracking-tighter mb-2">Duurzaamheid</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Waar mogelijk recupereer en hergebruik ik materialen. Een goede deur, een werkende kraan of mooie tegels verdienen een tweede leven. Slim met materialen, beter voor het milieu.
+            </p>
+          </div>
+
+          <!-- No-nonsense -->
+          <div class="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#d67b3a]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-sm">
+            <div class="w-11 h-11 rounded-xl bg-[#d67b3a]/10 text-[#d67b3a] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </div>
+            <h3 class="text-lg font-extrabold text-gray-900 tracking-tighter mb-2">No-nonsense</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Geen wollig taalgebruik, geen onrealistische beloftes. Ik zeg wat ik doe en ik doe wat ik zeg. Op tijd, binnen budget, zonder poespas. Dat is de SLIM-manier.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACTS BAR -->
+    <section class="py-20 md:py-24 bg-[#d67b3a] text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-animate>
+          <div>
+            <p class="text-3xl font-extrabold text-white tracking-tighter">15+</p>
+            <p class="text-sm text-white/70 mt-1">Jaar ervaring</p>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-white tracking-tighter">1</p>
+            <p class="text-sm text-white/70 mt-1">Vast aanspreekpunt</p>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-white tracking-tighter">24u</p>
+            <p class="text-sm text-white/70 mt-1">Antwoord gegarandeerd</p>
+          </div>
+          <div>
+            <p class="text-3xl font-extrabold text-white tracking-tighter">W+</p>
+            <p class="text-sm text-white/70 mt-1">Regio Wetteren</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEGEVENS (white) -->
+    <section class="py-20 md:py-24 border-t border-gray-200">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div data-animate>
+          <span class="text-[#d67b3a] text-sm font-semibold uppercase tracking-widest mb-3 block">Bedrijfsgegevens</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tighter mb-6">SLIM in het kort</h2>
+        </div>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 sm:p-8" data-animate>
+          <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Bedrijfsnaam</dt>
+              <dd class="text-gray-900 font-semibold">SLIM — Klussen & Renoveren</dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">BTW-nummer</dt>
+              <dd class="text-gray-900 font-semibold">BE1025378882</dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Adres</dt>
+              <dd class="text-gray-900 font-semibold">Wanzelestraat 27, 9260 Schellebelle (Wichelen)</dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Werkgebied</dt>
+              <dd class="text-gray-900 font-semibold">Wetteren en omstreken</dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Telefoon</dt>
+              <dd><a href="tel:0487726546" class="text-[#d67b3a] hover:text-[#c06a2e] font-semibold transition-colors">0487 72 65 46</a></dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">E-mail</dt>
+              <dd><a href="mailto:slim.klussen@gmail.com" class="text-[#d67b3a] hover:text-[#c06a2e] font-semibold transition-colors">slim.klussen@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Openingsuren</dt>
+              <dd class="text-gray-900 font-semibold">Ma - Vr: 08:00 - 18:00</dd>
+            </div>
+            <div>
+              <dt class="text-gray-500 font-medium mb-0.5">Verzekering</dt>
+              <dd class="text-gray-900 font-semibold">BA verzekerd</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 md:py-24 bg-[#d67b3a] text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center" data-animate>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tighter mb-4">
+          Klaar om samen te werken?
+        </h2>
+        <p class="text-white/80 text-lg mb-8 leading-relaxed max-w-xl mx-auto">
+          Vertel ons over uw project en ontvang een gratis, vrijblijvende offerte. Bekijk eerst onze <a href="/#diensten" class="text-white font-semibold underline hover:text-white/90 transition-colors">diensten</a> of neem direct contact op.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="tel:0487726546"
+            class="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#d67b3a] font-bold px-6 py-3.5 rounded-lg shadow-sm transition-all duration-200"
+          >
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            Bel 0487 72 65 46
+          </a>
+          <a
+            href="https://wa.me/32487726546"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-6 py-3.5 rounded-lg transition-all duration-200"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center gap-2 border border-white/30 text-white bg-transparent hover:bg-white/10 font-bold px-6 py-3.5 rounded-lg transition-all duration-200"
+          >
+            Contact opnemen
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Dark - kept) -->
+  <footer class="bg-gray-950 text-gray-400 border-t border-gray-800" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <img src="/logo-dark.png" alt="SLIM Klussen & Renoveren" class="h-12 w-auto mb-4" />
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Ervaren klusjesman in de regio Wetteren. Herstellingen, renovaties, montage en recuperatie.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Pagina's</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Home</a></li>
+            <li><a href="/over-ons" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Over ons</a></li>
+            <li><a href="/contact" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Contact</a></li>
+            <li><a href="/#diensten" class="text-gray-400 hover:text-[#d67b3a] transition-colors">Diensten</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="tel:0487726546" class="text-gray-400 hover:text-[#d67b3a] transition-colors">0487 72 65 46</a></li>
+            <li><a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="text-gray-400 hover:text-[#d67b3a] transition-colors">WhatsApp</a></li>
+            <li><a href="mailto:slim.klussen@gmail.com" class="text-gray-400 hover:text-[#d67b3a] transition-colors">slim.klussen@gmail.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-3">Gegevens</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>Wanzelestraat 27</li>
+            <li>9260 Schellebelle (Wichelen)</li>
+            <li>BTW: BE1025378882</li>
+            <li>Ma - Vr: 08:00 - 18:00</li>
+            <li>BA verzekerd</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-500">
+        <p>&copy; {new Date().getFullYear()} SLIM — Klussen & Renoveren. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button (desktop) -->
+  <a
+    href="https://wa.me/32487726546?text=Hallo%2C%20ik%20heb%20interesse%20in%20een%20offerte."
+    target="_blank"
+    rel="noopener"
+    class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hidden lg:flex"
+    aria-label="WhatsApp"
+  >
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- Mobile CTA bar (White) -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] p-3 translate-y-full transition-transform duration-300 lg:hidden" id="mobile-bar">
+    <div class="flex gap-2">
+      <a href="tel:0487726546" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#d67b3a] hover:bg-[#c06a2e] text-white font-bold py-3 rounded-lg text-sm shadow-sm transition-all duration-200">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        Bel nu
+      </a>
+      <a href="https://wa.me/32487726546" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20bd5a] text-white p-3 rounded-lg transition-all duration-200" aria-label="WhatsApp">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const mobileBar = document.getElementById('mobile-bar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        mobileBar?.classList.remove('translate-y-full');
+        mobileBar?.classList.add('translate-y-0');
+      } else {
+        mobileBar?.classList.add('translate-y-full');
+        mobileBar?.classList.remove('translate-y-0');
+      }
+    }, { passive: true });
+  </script>
+
+</Layout>
